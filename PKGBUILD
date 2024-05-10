@@ -1,6 +1,6 @@
 pkgname=mingw-w64-hdf5
 pkgver=1.14.4.2
-pkgrel=1
+pkgrel=2
 arch=('any')
 pkgdesc="General purpose library and file format for storing scientific data (mingw-w64)"
 url="http://www.hdfgroup.org/HDF5/"
@@ -17,6 +17,7 @@ prepare() {
   cd "$srcdir/hdf5-hdf5_${pkgver}"
   curl -L https://gitlab.archlinux.org/archlinux/packaging/packages/hdf5/-/raw/main/hdf5-fix-crash-partially-initialized-datatypes.patch | patch -p1
   curl -L https://github.com/HDFGroup/hdf5/pull/4466.patch | patch -p1
+  curl -L https://github.com/HDFGroup/hdf5/pull/4473.patch | patch -p1
 }
 
 build() {
